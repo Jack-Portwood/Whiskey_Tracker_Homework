@@ -1,5 +1,8 @@
 package com.codeclan.example.WhiskyTracker.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,8 +22,10 @@ public class Whisky {
     @Column(name = "age")
     private int age;
 
+
     @ManyToOne
     @JoinColumn(name = "distillery_id", nullable = false)
+    @JsonBackReference
     private Distillery distillery;
 
     public Whisky(String name, int age,int year, Distillery distillery) {
