@@ -24,5 +24,14 @@ public class DistilleryController {
         return new ResponseEntity(distilleryRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/age")
+    public ResponseEntity findByWhiskiesAge(@RequestParam(name="age", required = false) int age){
+        return new ResponseEntity(distilleryRepository.findByWhiskiesAge(age), HttpStatus.OK);
+    }
+
+
+
+
+
 
 }
